@@ -1,1 +1,3 @@
-# z-test-backend_task
+Разворот контейнера:
+# ./make.sh build
+$ ./make.sh run
