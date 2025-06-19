@@ -1,6 +1,6 @@
 <?php
 
 return collect([
-    'code' => RESPONSE_OK,
+    'code' => 'ok',
     'data' => $data
 ]);

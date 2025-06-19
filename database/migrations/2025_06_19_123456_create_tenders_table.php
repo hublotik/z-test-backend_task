@@ -10,9 +10,9 @@ class CreateTendersTable extends Migration
     {
         Schema::create('tenders', function (Blueprint $table) {
             $table->id();
-            $table->string('remote_id'); // заменено здесь
+            $table->string('remote_id');
             $table->string('number');
-            $table->string('status');
+            $table->foreignId('status_id')->constrained('status_dict');
             $table->string('name');
             $table->timestamps();
         });
