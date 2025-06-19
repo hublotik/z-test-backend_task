@@ -50,7 +50,7 @@
 			"response": []
 		},
 		{
-			"name": "Создание Copy",
+			"name": "Auth",
 			"request": {
 				"auth": {
 					"type": "apikey",
