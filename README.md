@@ -5,3 +5,4 @@
 *конфиг бд: database.php, есть один seeder: TendersImportSeeder.php
 # php artisan migrate
 # php artisan db:seed
+**postman коллекция: Tenders.postman_collection.json**
