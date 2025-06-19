@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "92f28de0-131b-4360-b5c6-429308bd485b",
+		"name": "Tenders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34063912"
+	},
+	"item": [
+		{
+			"name": "Создание",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"value": "iuVML6VVvWaFJhQviegDIEZW8Jzc1wM3azyYBanZaFEsYyLXDyMAQvFST8IH",
+						"key": "X-API-KEY"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/tenders?remote_id=53409594&number=432&status_id=2&name=abc",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"tenders"
+					],
+					"query": [
+						{
+							"key": "remote_id",
+							"value": "53409594"
+						},
+						{
+							"key": "number",
+							"value": "432"
+						},
+						{
+							"key": "status_id",
+							"value": "2"
+						},
+						{
+							"key": "name",
+							"value": "abc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение по id",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"value": "iuVML6VVvWaFJhQviegDIEZW8Jzc1wM3azyYBanZaFEsYyLXDyMAQvFST8IH",
+						"key": "X-API-KEY"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{baseUrl}}/api/tenders/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Список с фильтрацией",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"value": "iuVML6VVvWaFJhQviegDIEZW8Jzc1wM3azyYBanZaFEsYyLXDyMAQvFST8IH",
+						"key": "X-API-KEY"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/tenders?name=abc&date=2025-06-19",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"tenders"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "abc"
+						},
+						{
+							"key": "date",
+							"value": "2025-06-19"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": {
+			"value": "iuVML6VVvWaFJhQviegDIEZW8Jzc1wM3azyYBanZaFEsYyLXDyMAQvFST8IH",
+			"key": "X-API-KEY"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:94",
+			"type": "string"
+		}
+	]
+}

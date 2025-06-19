@@ -9,7 +9,10 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api'], function() use ($router){
-    Route::apiResource('tenders', TenderController::class);
+    
+    Route::middleware('auth.api')->group(function () {
+        Route::apiResource('tenders', TenderController::class);
+    });
     
     $router->get('/', function () use ($router) {
         return 'start page';
