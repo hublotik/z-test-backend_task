@@ -49,7 +49,7 @@ class TenderController extends Controller
         $tender = Tender::with('status')->find($id);
 
         if (empty($tender)) {
-            return response()->json(['message' => 'Тендер не найден'], 404);
+            return response()->json(['message' => 'Tender no found'], 404);
         }
 
         return response()->json($tender);
@@ -63,19 +63,37 @@ class TenderController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Tender::with('status');
+        try {
+            $query = Tender::with('status');
 
-        if ($request->has('name')) {
-            $query->where('name', 'like', '%' . $request->query('name') . '%');
+            if ($request->has('name')) {
+                $name = $request->query('name');
+
+                if (is_string($name)) {
+                    $query->where('name', 'like', '%' . $name . '%');
+                } else {
+                    return response()->json([
+                        'error' => 'Invalid name parameter'
+                    ], 400);
+                }
+            }
+
+            if ($request->has('date')) {
+                $dateParam = $request->query('date');
+
+                $date = Carbon::parse($dateParam);
+                $query->whereDate('created_at', $date->toDateString());
+            }
+
+            $tenders = $query->paginate(10);
+
+            return response()->json($tenders);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Unexpected exception occured',
+                'message' => $e->getMessage()
+            ], 400);
         }
-
-        if ($request->has('date')) {
-            $date = Carbon::parse($request->query('date'));
-            $query->whereDate('created_at', $date);
-        }
-
-        $tenders = $query->paginate(10);
-
-        return response()->json($tenders);
     }
 }
