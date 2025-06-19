@@ -50,6 +50,41 @@
 			"response": []
 		},
 		{
+			"name": "Создание Copy",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"value": "iuVML6VVvWaFJhQviegDIEZW8Jzc1wM3azyYBanZaFEsYyLXDyMAQvFST8IH",
+						"key": "X-API-KEY"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/auth?email=admin@example.com&password=password",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "admin@example.com"
+						},
+						{
+							"key": "password",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Получение по id",
 			"request": {
 				"auth": {
